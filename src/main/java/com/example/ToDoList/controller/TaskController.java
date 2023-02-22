@@ -21,39 +21,34 @@ public class TaskController {
     }
 
     @GetMapping("/findById/{empId}")
-    public Optional<Task> findById(@PathVariable int empId){
-        return taskServiceObject.displayById(empId);
+    public Optional<Task> findByEmpId(@PathVariable int empId){
+        return taskServiceObject.displayByEmpId(empId);
     }
 
     @GetMapping("/findByMail/{email}")
-    public Optional<Task> findByMail(@PathVariable String email){
-        return taskServiceObject.displayByMail(email);
+    public Optional<Task> findByEmpMail(@PathVariable String email){
+        return taskServiceObject.displayByEmpMail(email);
     }
 
     @GetMapping("/findByName/{name}")
-    public List<Task> findByName(@PathVariable String name){
-        return taskServiceObject.displayByName(name);
-    }
-
-    @GetMapping("/findByProject/{project}")
-    public List<Task> findByProject(@PathVariable String project){
-        return taskServiceObject.displayByProject(project);
+    public List<Task> findByEmpName(@PathVariable String name){
+        return taskServiceObject.displayByEmpName(name);
     }
 
     @GetMapping("/displayRecord")
-    public List<Task> findAll(){
+    public List<Task> findAllTask(){
         return taskServiceObject.displayAllTaskDetails();
     }
 
     @DeleteMapping("/deleteById/{empId}")
-    public String deleteById(@PathVariable int empId){
-        taskServiceObject.deleteById(empId);
+    public String deleteByEmpId(@PathVariable int empId){
+        taskServiceObject.deleteByEmpId(empId);
         return "Deleted by id";
     }
 
-    @PutMapping("/update/{id}")
-    public String Update(@PathVariable int id, @RequestBody Task taskObject){
-        return taskServiceObject.Update(id,taskObject);
+    @PutMapping("/update/{empId}")
+    public String UpdateTask(@PathVariable int empId, @RequestBody Task taskObject){
+        return taskServiceObject.UpdateTask(empId,taskObject);
     }
 
 

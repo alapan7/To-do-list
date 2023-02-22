@@ -13,5 +13,4 @@ public interface TaskRepository extends JpaRepository<Task,Integer> {
 
     Optional<Task> findByEmail(String email);
 
-    List<Task> findByProjectName(String project);
 }

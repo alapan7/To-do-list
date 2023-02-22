@@ -5,9 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 
 
 @Data
@@ -23,6 +21,9 @@ public class Task {
     private String company;
     private String officeWork;
     private float officeTiming;
-    private String projectName;
 
+    @ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "projectId")
+    Project projectObject;
 }
+
